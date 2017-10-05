@@ -3,39 +3,9 @@
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
- #title{
-  font-size: 72pt;
-  font-family: 'Bangers', cursive;
 
- }
 
- h1 {
-  color:red;
-  font-family: 'Bangers', cursive;
-  font-size: 100em;
- }
 
- h5 {
-  color:white;
-  font-family: 'Fira Sans Extra Condensed', sans-serif;
-
- }
-
- h2 {
-  font-family: 'Bangers', cursive;
- }
-
-#navbar {
-  background-color: purple !important;
-  ;
-}
-.dropdown-content {
-  color:brown !important;
-}
-#dropdown1 {
-  color: black !important;
-
-}
 .materialize-red {
   background-color: #e51c23 !important;
 }

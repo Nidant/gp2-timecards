@@ -1,3 +1,49 @@
+nav ul a {
+	color: brown;
+	font-family: 'Fira Sans Extra Condensed', sans-serif;
+	font-size: 18pt
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+	color:brown;
+	font-size: 14pt;
+}
+
+#navbar {
+	background-color: #FFF;
+	height: 75px;
+}
+
+ #title{
+  font-size: 72pt;
+  font-family: 'Bangers', cursive;
+
+ }
+
+ h1 {
+  color:red;
+  font-family: 'Bangers', cursive;
+ }
+
+	 h2 {
+  font-family: 'Bangers', cursive;
+ }
+
+  h4 {
+  color:brown;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+ }
+
+ h5 {
+  color:white;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+
+ }
+
+
+
+
+
 .displayLogin{
 	color:black;
 	position: fixed;
