@@ -1,0 +1,22 @@
+.displayLogin{
+	color:black;
+	position: fixed;
+	right:30%;
+	border: solid #0069d9;
+	background-color: white;
+	top:15%;
+	left:30%;
+	
+}
+.loginScreen{
+	padding-left: 15px;
+}
+#loginPrompt{
+	font-size: 30px;
+}
+
+#closeWindow{
+	cursor: pointer;
+	width:15px;
+	margin-left: 45.5%;
+}
