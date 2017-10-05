@@ -10,13 +10,14 @@
   <link href="../CSS/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="../CSS/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="https://fonts.googleapis.com/css?family=Bangers|Fira+Sans+Extra+Condensed" rel="stylesheet">
+  <link href="../CSS/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
     
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">Login</a></li>
-  <li><a href="#!">Add User</a></li>
+  <li><a onclick="login()">Login</a></li>
+  <li><a onclick="newUser()">Add User</a></li>
   <li class="divider"></li>
   <li><a href="#!">Admin</a></li>
 </ul>
@@ -162,11 +163,20 @@
     </div>
   </footer>
 
+  <!-- This is where the login information will be appended -->
+  <div class="row">
+    
+      <div id='loginPopup'>
+    
+      </div>
+    
+  </div>
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="../JavaScript/materialize.js"></script>
   <script src="../JavaScript/init.js"></script>
+  <script src="../JavaScript/js.js"></script>
 
   </body>
 </html>
