@@ -9,7 +9,7 @@ const db = require('../models');
 		    end = res.body.end,
 		    email = res.body.email;
 
-		db.Punch.findAll{
+		db.Punchs.findAll{
 			attributes: ['start', 'stop', 'note']
 			include: [{
 				model: user,
@@ -33,7 +33,7 @@ const db = require('../models');
 		    end = res.body.end,
 		    team = res.body.team;
 
-		db.Punch.findAll{
+		db.Punchs.findAll{
 			attributes: ['start', 'stop', 'note']
 			include: [{
 				model: user,
@@ -57,7 +57,7 @@ const db = require('../models');
 		    end = res.body.end,
 		    company = res.body.company;
 
-		db.Punch.findAll{
+		db.Punchs.findAll{
 			attributes: ['start', 'stop', 'note']
 			include: [{
 				model: user
@@ -84,7 +84,7 @@ const db = require('../models');
 		    end = res.body.end,
 		    email = res.body.email;
 
-		db.Punch.findAll{
+		db.Punchs.findAll{
 			include: [{model: User},{model: Login}],
 			where: {
 				 email: email,
@@ -103,7 +103,7 @@ const db = require('../models');
 		    end = res.body.end,
 		    company = res.body.team;
 
-		db.Punch.findAll{
+		db.Punchs.findAll{
 			include: [{model: User},{model: Team}],
 			where: {
 				 team: team,
@@ -122,7 +122,7 @@ const db = require('../models');
 		    end = res.body.end,
 		    company = res.body.company;
 
-		db.Punch.findAll{
+		db.Punchs.findAll{
 			include: [{model: User},{model: login}],
 			where: {
 				 company: team,

@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
+  var Users = sequelize.define("Users", {
     fName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -13,19 +13,42 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isAlpha: true
       }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true, 
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8,16],
+      }
+    },
+    company: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    Team: {
+      type: DataTypes.STRING
     }
   });
 
-  User.associate = function(models) {
+  Users.associate = function(models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
-    User.belongsTo(models.Logins, {
+    Users.hasMany(models.Punchs, {
       foreignKey: {
         allowNull: false
       }
     });
-    User.hasMany(models.Punch);
   };
 
-  return User;
+  return Users;
 };

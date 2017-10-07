@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Punch = sequelize.define("Punch", {
+  var Punchs = sequelize.define("Punchs", {
     start: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -18,16 +18,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Punch.associate = function(models) {
+  Punchs.associate = function(models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
-    Punch.belongsTo(models.User, {
+    Punchs.belongsTo(models.Users, {
       onDelete: "cascade"
-    };
-
-    Punch.belongsTo(models.Job);
-    );
+    });
   };
 
-  return Punch;
+  return Punchs;
 };
