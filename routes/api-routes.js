@@ -1,5 +1,5 @@
-const db = require('../models'),
-	  bodyParse = require('bodyParse'),
+const db = require('../model'),
+	  bodyParser = require('body-parser'),
 	  $ = require('jquery');
 
 
@@ -8,7 +8,7 @@ const express = require('express'),
 	  router = express.Router();
 
 //import controllers
-const apiGetController = require(`../controllers/apiGetController`),
+const apiGetController = require('../controllers/apiGetController'),
 	  apiPostController = require('../controllers/apiPostController'),
 	  apiPutController = require('../controllers/apiPutController'),
 	  apiDeleteController = require('../controllers/apiDeleteController');
@@ -21,15 +21,15 @@ module.exports = function(app) {
 
 		let action = req.body.action;
 
-		apiGetController.[action](req);
+		apiGetController[action](req);
 
-	}
+	});
 
 	app.post("/api/", function(req, res){
 
 		let action = req.body.action;
 
-		apiPostController.[action](req);
+		apiPostController[action](req);
 
 	});
 
@@ -37,15 +37,15 @@ module.exports = function(app) {
 
 		let action = req.body.action;
 
-		apiPutController.[action](req);
+		apiPutController[action](req);
 
-	}
+	})
 
 	app.delete("/api", function(req, res){
 
 		let action = req.body.action;
 
-		apiDeleteController.[action](req);
+		apiDeleteController[action](req);
 
 	});
 }
