@@ -25,6 +25,7 @@ function newUser(){
 function closeWindow(){
 	$('#loginPopup').attr('class', '');
 	document.getElementById("loginPopup").innerHTML = "";
+
 };
 
 function loginPush(){
@@ -48,3 +49,9 @@ $("#contact").click(function() {
         scrollTop: $("#contactText").offset().top
     }, 2000);
 });
+
+}
+
+var testDates = ["2017-10-02 08:00:00","2017-10-02 17:00:00", "2017-10-03 08:00:00","2017-10-03 17:00:00","2017-10-04 08:00:00","2017-10-04 12:00:00","2017-10-04 13:00:00","2017-10-04 17:00:00" ]
+
+
