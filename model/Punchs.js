@@ -24,6 +24,8 @@ module.exports = function(sequelize, DataTypes) {
     Punchs.belongsTo(models.Users, {
       onDelete: "cascade"
     });
+
+    Punchs.belongsTo(models.Jobs,{});
   };
 
   return Punchs;
