@@ -1,30 +1,27 @@
 const db = require('../models');
 
-// -- Time punch (type, name, startDate, endDate) type = Company, User, Team  => {startTime, endTime, Type}
+// -- Time punch (type, name, startDate, endDate) type = Company, Users, Team  => {startTime, endTime, Type}
 	
-	//user
-	exports.userTimePunch = function (req, res){
+	//Users
+	exports.usersTimePunch = function (req, res){
 
 		let start = res.body.start,
 		    end = res.body.end,
 		    email = res.body.email;
 
-		db.Punchs.findAll{
-			attributes: ['start', 'stop', 'note']
+		db.Punchs.findAll({
+			attributes: ['task', 'job','start', 'stop', 'note'],
 			include: [{
-				model: user,
+				model: Users,
 				required: true
-				include: {
-					model: login,
-					required: true
-				}
 			}],
 			where: {
 				 email: email,
 				 $gte: start,
 				 $lte: end
 			}
-		}
+		});
+	};
 
 	//team
 	exports.teamTimePunch = function (req, res){
@@ -33,21 +30,20 @@ const db = require('../models');
 		    end = res.body.end,
 		    team = res.body.team;
 
-		db.Punchs.findAll{
-			attributes: ['start', 'stop', 'note']
+		db.Punchs.findAll({
+			group: ['email'],
+			attributes: ['start', 'stop', 'note'],
 			include: [{
-				model: user,
-				attributes: [fName, lName],
-				include: {
-					model: team
-				}
+				model: Users,
+				required: true,
+				attributes: [fName, lName]
 			}],
 			where: {
 				 team: team,
 				 $gte: start,
 				 $lte: end
 			}
-		};
+		});
 	};
 
 	//company
@@ -57,44 +53,43 @@ const db = require('../models');
 		    end = res.body.end,
 		    company = res.body.company;
 
-		db.Punchs.findAll{
-			attributes: ['start', 'stop', 'note']
+		db.Punchs.findAll({
+			attributes: ['start', 'stop', 'note'],
 			include: [{
-				model: user
-				include: {
-					model: team
-				}
+				model: Users,
+				required: true
 			}],
 			where: {
 				 company: company,
 				 $gte: start,
 				 $lte: end
 			}
-		};
-	}
+		});
+	};
 
 
 // C
-// -- Total hours (type, name, startDate, endDate) type = Company, User, Team => total Hours (OverTime, Normal, Holiday, Sick)
+// -- Total hours (type, name, startDate, endDate) type = Company, Users, Team => total Hours (OverTime, Normal, Holiday, Sick)
 
-	//user
-	exports.userTotalTime = function (req, res){
+	//Users
+	exports.UsersTotalTime = function (req, res){
 
 		let start = res.body.start,
 		    end = res.body.end,
 		    email = res.body.email;
 
-		db.Punchs.findAll{
-			include: [{model: User},{model: Login}],
+		db.Punchs.findAll({
+			include: [{
+				model: Users,
+				required: true
+			}],
 			where: {
 				 email: email,
 				 $gte: start,
 				 $lte: end
 			}
-		}.then(function(punch) {
-			res.json(punch);
-		});
-	}
+		})
+	};
 
 	//team
 	exports.teamTotalTime = function (req, res){
@@ -103,59 +98,63 @@ const db = require('../models');
 		    end = res.body.end,
 		    company = res.body.team;
 
-		db.Punchs.findAll{
-			include: [{model: User},{model: Team}],
+		db.Punchs.findAll({
+			include: [{
+				model: Users,
+				required: true
+			}],
 			where: {
 				 team: team,
 				 $gte: start,
 				 $lte: end
 			}
-		}.then(function(punch) {
-			res.json(punch);
 		});
-	}
+	};
 
 	//company
-		exports.companyTotalTime = function (req, res){
+	exports.companyTotalTime = function (req, res){
 
 		let start = res.body.start,
 		    end = res.body.end,
 		    company = res.body.company;
 
-		db.Punchs.findAll{
-			include: [{model: User},{model: login}],
+		db.Punchs.findAll({
+			include: [{
+				model: Users,
+				required: true
+			}],
 			where: {
 				 company: team,
 				 $gte: start,
 				 $lte: end
 			}
-		}.then(function(punch) {
-			res.json(punch);
-		});
-	}
+		})
+	};
 
 
 // D
-// -- List of Company(company, leng) leng = Long (emails, fname, lname), short = (Compony and user count)
+// -- List of Company(company, leng) leng = Long (emails, fname, lname), short = (Compony and Users count)
 
 	//company long
 	exports.companyDetailsFull = function (req, res){
 
+		let company = res.body.company;
 
-	}
+		db.Users.findAll({
+			where: {
+				 company: company,
+			}
+		});
+	};
 
 	//company short
 	exports.companyDetails = function (req, res){
 
+		let company = res.body.company;
 
-	}
-
-// B
-// -- Login (userName, Password) => Success/Fail
-
-	//log in check
-	exports.login = function (req, res){
-
-	}
-
-// ============================================================
+		db.Users.findAll({
+			where: {
+				 company: company,
+			}
+		})
+	};

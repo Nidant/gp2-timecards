@@ -1,7 +1,5 @@
 const db = require('../models');
 
-
-
 // -- new user (fname, lname, username, company, password)
 exports.newUser = function (req, res){
 		

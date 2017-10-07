@@ -7,11 +7,19 @@ exports.updateUser = function (req, res){
 
 		let id = res.body.id,
 		    lName = res.body.lname,
-		    fName = res.body.fname;
+		    fName = res.body.fname,
+		    email = res.body.email,
+		    password = res.body.password,
+		    company = res.body.company,
+		    team = res.body.team;
 
-		db.User.update({
+		db.Users.update({
 			fname: fName,
-			lName: lName
+			lName: lName,
+			email: email,
+			password: password,
+			company: company,
+			team: team
 		},
 		{
 			where: {
@@ -19,26 +27,6 @@ exports.updateUser = function (req, res){
 			}
 		});
 	};
-
-// -- login(userName, Company, email)
-exports.updateLogin = function (req, res){
-
-		let id = res.body.id,
-		    email = res.body.email,
-		    password = res.body.password,
-		    compnay = res.body.company;
-
-		db.login.update({
-			email: email,
-			password: password,
-			company: company
-		},
-		{
-			where: {
-				id: id
-			}
-		});
-	}
 
 // -- Time(id, start, end)
 exports.updateTimePunch = function (req, res){
@@ -48,7 +36,7 @@ exports.updateTimePunch = function (req, res){
 		    end = res.body.end,
 		    note = res.body.note;
 
-		db.Punch.update({
+		db.Punchs.update({
 			start: start,
 			end: end,
 			note: note
@@ -67,7 +55,7 @@ exports.updateCompanyName = function (req, res){
 			company = res.body.company;
 
 
-		db.Login.update({
+		db.users.update({
 			company: company
 		},
 		{
@@ -84,7 +72,7 @@ exports.updateJobTask = function (req, res){
 		    job = res.body.job,
 		    task = res.body.task;
 
-		db.Job.update({
+		db.Jobs.update({
 			job: job,
 			task: task
 		},
@@ -102,7 +90,7 @@ exports.updateJobName = function (req, res){
 		    job = res.body.lname,
 		    fName = res.body.fname;
 
-		db.Job.update({
+		db.Jobs.update({
 			job: job,
 		},
 		{

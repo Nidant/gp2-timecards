@@ -15,33 +15,12 @@ exports.delteUser = function (req, res){
 		});
 	};
 
-// -- Team(id)
-exports.delteTeam = function (req, res){
-			let team = res.body.team 
-
-		db.Team.destroy({
-			where: {
-				team: team
-			}
-		});
-	};
-
-// -- company(name)
-exports.delteCompany = function (req, res){
-			let company = res.body.company
-
-		db.User.destroy({
-			where: {
-				company: company
-			}
-		});
-	};
 
 // -- Time(id, start, end)
 exports.delteTimePunch = function (req, res){
 			let id = res.body.id 
 
-		db.Punch.destroy({
+		db.Punchs.destroy({
 			where: {
 				id: id
 			}
@@ -52,7 +31,7 @@ exports.delteTimePunch = function (req, res){
 exports.delteTask = function (req, res){
 			let id = res.body.id 
 
-		db.Job.destroy({
+		db.Jobs.destroy({
 			where: {
 				id: id
 			}
@@ -63,7 +42,7 @@ exports.delteTask = function (req, res){
 exports.delteJob = function (req, res){
 			let job = res.body.job 
 
-		db.Job.destroy({
+		db.Jobs.destroy({
 			where: {
 				job: job
 			}

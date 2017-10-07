@@ -35,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    Team: {
+    team: {
       type: DataTypes.STRING
     }
   });

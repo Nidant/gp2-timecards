@@ -1,4 +1,4 @@
-const db = require('../model'),
+const db = require('../models'),
 	  bodyParser = require('body-parser'),
 	  $ = require('jquery');
 
@@ -21,7 +21,9 @@ module.exports = function(app) {
 
 		let action = req.body.action;
 
-		apiGetController[action](req);
+		apiGetController[action](req).then(function(results){
+        	res.json(results);
+      	});
 
 	});
 
@@ -29,7 +31,9 @@ module.exports = function(app) {
 
 		let action = req.body.action;
 
-		apiPostController[action](req);
+		apiPostController[action](req).then(function(results){
+       		res.json(results);
+      	});
 
 	});
 
@@ -37,7 +41,9 @@ module.exports = function(app) {
 
 		let action = req.body.action;
 
-		apiPutController[action](req);
+		apiPutController[action](req).then(function(results){
+        	res.json(results);
+      	});
 
 	})
 
@@ -45,7 +51,9 @@ module.exports = function(app) {
 
 		let action = req.body.action;
 
-		apiDeleteController[action](req);
+		apiDeleteController[action](req).then(function(results){
+        	res.json(results);
+      	});
 
 	});
 }
