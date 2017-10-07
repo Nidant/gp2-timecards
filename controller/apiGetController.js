@@ -1,34 +1,22 @@
-const Logins = require(`../models/logins`),
-	  Punchs = require('../models/punchs'),
-	  Teams = require('../models/teams'),
-	  Jobs = require('../models/jobs'),
-	  Users = require('../models/users');
-
-
-exports.apiController = function (req, res){
-
-	let action = req.body.action;
-
-	[action](req).then(function(res) {
-			res.json(res);
-		});
-
-}
+const db = require('../models');
 
 // -- Time punch (type, name, startDate, endDate) type = Company, User, Team  => {startTime, endTime, Type}
 	
 	//user
-	function userTimePunch(data){
-		let start = data.body.start,
-		    end = data.body.end,
-		    email = data.body.email;
+	exports.userTimePunch = function (req, res){
+
+		let start = res.body.start,
+		    end = res.body.end,
+		    email = res.body.email;
 
 		db.Punch.findAll{
 			attributes: ['start', 'stop', 'note']
 			include: [{
-				model: user
+				model: user,
+				required: true
 				include: {
-					model: login
+					model: login,
+					required: true
 				}
 			}],
 			where: {
@@ -39,11 +27,11 @@ exports.apiController = function (req, res){
 		}
 
 	//team
-	function teamTimePunch(data){
+	exports.teamTimePunch = function (req, res){
 
-		let start = data.body.start,
-		    end = data.body.end,
-		    team = data.body.team;
+		let start = res.body.start,
+		    end = res.body.end,
+		    team = res.body.team;
 
 		db.Punch.findAll{
 			attributes: ['start', 'stop', 'note']
@@ -63,20 +51,11 @@ exports.apiController = function (req, res){
 	};
 
 	//company
-	function companyTimePunch(data){
-		let start = data.body.start,
-		    end = data.body.end,
-		    company = data.body.company;
+	exports.companyTimePunch = function (req, res){
 
-		db.Punch.findAll{
-			include: [{model: User},{model: login}],
-			where: {
-				 company: team,
-				 $gte: start,
-				 $lte: end
-			}
-		}
-
+		let start = res.body.start,
+		    end = res.body.end,
+		    company = res.body.company;
 
 		db.Punch.findAll{
 			attributes: ['start', 'stop', 'note']
@@ -99,10 +78,11 @@ exports.apiController = function (req, res){
 // -- Total hours (type, name, startDate, endDate) type = Company, User, Team => total Hours (OverTime, Normal, Holiday, Sick)
 
 	//user
-	function userTotalTime(data){
-		let start = data.body.start,
-		    end = data.body.end,
-		    email = data.body.email;
+	exports.userTotalTime = function (req, res){
+
+		let start = res.body.start,
+		    end = res.body.end,
+		    email = res.body.email;
 
 		db.Punch.findAll{
 			include: [{model: User},{model: Login}],
@@ -117,10 +97,11 @@ exports.apiController = function (req, res){
 	}
 
 	//team
-	function teamTotalTime(data){
-		let start = data.body.start,
-		    end = data.body.end,
-		    company = data.body.team;
+	exports.teamTotalTime = function (req, res){
+
+		let start = res.body.start,
+		    end = res.body.end,
+		    company = res.body.team;
 
 		db.Punch.findAll{
 			include: [{model: User},{model: Team}],
@@ -135,10 +116,11 @@ exports.apiController = function (req, res){
 	}
 
 	//company
-	function companyTotalTime(data){
-		let start = data.body.start,
-		    end = data.body.end,
-		    company = data.body.company;
+		exports.companyTotalTime = function (req, res){
+
+		let start = res.body.start,
+		    end = res.body.end,
+		    company = res.body.company;
 
 		db.Punch.findAll{
 			include: [{model: User},{model: login}],
@@ -157,12 +139,14 @@ exports.apiController = function (req, res){
 // -- List of Company(company, leng) leng = Long (emails, fname, lname), short = (Compony and user count)
 
 	//company long
-	function companyDetailsFull(data){
+	exports.companyDetailsFull = function (req, res){
+
 
 	}
 
 	//company short
-	function companyDetails(data){
+	exports.companyDetails = function (req, res){
+
 
 	}
 
@@ -170,7 +154,7 @@ exports.apiController = function (req, res){
 // -- Login (userName, Password) => Success/Fail
 
 	//log in check
-	function login(data){
+	exports.login = function (req, res){
 
 	}
 

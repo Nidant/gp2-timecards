@@ -1,24 +1,9 @@
-const Logins = require(`../models/logins`),
-	  Punchs = require('../models/punchs'),
-	  Teams = require('../models/teams'),
-	  Jobs = require('../models/jobs'),
-	  Users = require('../models/users');
+const db = require('../models');
 
 // Put
 
-exports.apiController = function (req, res){
-
-	let action = req.body.action;
-
-	[action](req).then(function(res) {
-			res.json(res);
-		});
-
-}
-
-
 // -- User(fname, lname)
-	function updateUser(res){
+exports.updateUser = function (req, res){
 
 		let id = res.body.id,
 		    lName = res.body.lname,
@@ -36,7 +21,8 @@ exports.apiController = function (req, res){
 	};
 
 // -- login(userName, Company, email)
-	function updateUser(res){
+exports.updateLogin = function (req, res){
+
 		let id = res.body.id,
 		    email = res.body.email,
 		    password = res.body.password,
@@ -55,7 +41,8 @@ exports.apiController = function (req, res){
 	}
 
 // -- Time(id, start, end)
-	function updateTimePunch(res){
+exports.updateTimePunch = function (req, res){
+
 		let id = res.body.id,
 		    start = res.body.start,
 		    end = res.body.end,
@@ -74,7 +61,7 @@ exports.apiController = function (req, res){
 	}
 
 // -- Update(Compony Name)
-	function updateCompanyName(res){
+exports.updateCompanyName = function (req, res){
 
 		let oldCompany = res.body.companyOld,
 			company = res.body.company;
@@ -91,7 +78,7 @@ exports.apiController = function (req, res){
 	}
 
 // -- Job/Task(id, job, task)
-	function updateJobTask(res){
+exports.updateJobTask = function (req, res){
 
 		let id = res.body.id,
 		    job = res.body.job,
@@ -109,7 +96,7 @@ exports.apiController = function (req, res){
 	}
 
 	// -- Job/Task(id, job, task)
-	function updateJobName(res){
+exports.updateJobName = function (req, res){
 
 		let id = res.body.id,
 		    job = res.body.lname,

@@ -1,8 +1,4 @@
-const Logins = require(`../models/logins`),
-	  Punchs = require('../models/punchs'),
-	  Teams = require('../models/teams'),
-	  Jobs = require('../models/jobs'),
-	  Users = require('../models/users');
+const db = require('../models');
 
 
 
