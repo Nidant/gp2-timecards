@@ -5,7 +5,7 @@ const db = require('../models');
 	//Users
 	exports.usersTimePunch = function (req, res){
 
-		let start = res.body.start,
+		var start = res.body.start,
 		    end = res.body.end,
 		    email = res.body.email;
 

@@ -17,7 +17,9 @@ exports.newJob = function (req, res){
 
 // -- addHoliday Hours (type, name, hours, date) type = Company, User, Team
 exports.holiday = function (req, res){
-		
+		db.users.create({
+
+		})
 	};
 
 

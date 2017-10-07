@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Poker003!",
-    "database": "blogger",
+    "database": "timecards",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
