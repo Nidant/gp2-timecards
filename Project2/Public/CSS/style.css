@@ -40,7 +40,9 @@ nav ul a {
 
  }
 
-
+.infoHeader{
+	color: brown;
+}
 
 
 
@@ -67,8 +69,9 @@ nav ul a {
 #closeWindow{
 	cursor: pointer;
 	width:15px;
-	margin-left: 45.5%;
+	margin-left: 46.75%;
 }
+
 
 #middlePic {
  background-color: #38557C;
