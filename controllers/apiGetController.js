@@ -177,7 +177,7 @@ const db = require('../models');
 
 		db.Users.findAll({
 			where: {
-				 company: company,
+				 company: company
 			}
 		})
 		.then(function(result) {
@@ -192,7 +192,24 @@ const db = require('../models');
 
 		db.Users.findAll({
 			where: {
-				 company: company,
+				 company: company
+			}
+		})
+		.then(function(result) {
+			res.json(result);
+		});
+	};
+
+		//company short
+	exports.login = function (req, res){
+
+		let company = res.body.email,
+			pwd = res.body.password;
+
+		db.Users.findAll({
+			where: {
+				 email: email,
+				 password: pwd
 			}
 		})
 		.then(function(result) {
