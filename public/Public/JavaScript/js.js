@@ -33,7 +33,7 @@ $("#contactUs").click(function() {
     }, 2000);
 });
 
-//create new user submit button is clicked
+//create new user when submit button is clicked
 function postNewUser(){
 	function postUser(userData) {
     	$.post("/api/", userData)
@@ -48,9 +48,9 @@ function postNewUser(){
   	}else{
 
 		postUser({
-			action: newUser,
-			fname: $('#newfname').val(),
-			lname: $('#newlname').val(),
+			action: 'newUser',
+			fName: $('#newfname').val(),
+			lName: $('#newlname').val(),
 			email: $('#newEmail').val(),
 			password: $('#newPassword').val(),
 			company: $('#newCompany').val()

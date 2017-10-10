@@ -28,6 +28,13 @@ app.use(express.static("public"));
 // =============================================================
 // require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
+
+//import controllers
+const apiGetController = require('./controllers/apiGetController'),
+	  apiPostController = require('./controllers/apiPostController'),
+	  apiPutController = require('./controllers/apiPutController'),
+	  apiDeleteController = require('./controllers/apiDeleteController');
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

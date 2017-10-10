@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Poker003!",
+    "password": "password",
     "database": "timecards",
     "host": "127.0.0.1",
     "dialect": "mysql"
