@@ -1,20 +1,33 @@
 module.exports = function(sequelize, DataTypes) {
   var Punchs = sequelize.define("Punchs", {
-    start: {
-      type: DataTypes.DATE,
+    startDate: {
+      type: DataTypes.DATEONLY,
       allowNull: false,
       validate: {
         isDate: true
       }
     },
-    stop: {
-      type: DataTypes.DATE,
+    startTime: {
+      type: DataTypes.TIME,
+      allowNull: false,
       validate: {
         isDate: true
       }
     },
+    stopDate: {
+      type: DataTypes.DATEONLY,
+      validate: {
+        isDate: true
+      }
+    },
+    stopTime: {
+      type: DataTypes.TIME,
+      validate: {
+        isDate: true
+      },
     note: {
       type: DataTypes.TEXT,
+    }
     }
   });
 
