@@ -1,4 +1,3 @@
-
 function login(){
 	closeWindow();
 	$('#loginPopup').attr('class', 'displayLogin center');
@@ -21,7 +20,6 @@ function newUser(){
 	$('#loginPopup').append("Confirm Password: " + "<input class='center' id='newPassword2' type='password' name='password2'>");
 	$('#loginPopup').append("<button class='center' onclick='postNewUser()' type='button'>CREATE</button>");
 	$('#loginPopup').append("<p class='center' id='closeWindow' onclick='closeWindow()'>Close</p>");
-	
 };
 
 //when the close button is pressed, close the window
@@ -29,7 +27,6 @@ function closeWindow(){
 	$('#loginPopup').attr('class', '');
 	document.getElementById("loginPopup").innerHTML = "";
 }
-
 $("#contactUs").click(function() {
     $('html, body').animate({
         scrollTop: $("#ContactUs").offset().top

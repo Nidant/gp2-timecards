@@ -1,1 +1,0 @@
-const teams = require('../models/teams');
