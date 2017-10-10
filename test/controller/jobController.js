@@ -1,1 +1,0 @@
-const Jobs = require('../models/jobs');
