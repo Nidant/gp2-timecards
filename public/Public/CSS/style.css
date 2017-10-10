@@ -37,12 +37,7 @@ nav ul a {
  h5 {
   color:white;
   font-family: 'Fira Sans Extra Condensed', sans-serif;
-
  }
-
-
-
-
 
 .displayLogin{
 	color:black;
@@ -67,7 +62,7 @@ nav ul a {
 #closeWindow{
 	cursor: pointer;
 	width:15px;
-	margin-left: 45.5%;
+	margin-left: 47%;
 }
 
 #middlePic {
