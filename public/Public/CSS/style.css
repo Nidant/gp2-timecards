@@ -1,0 +1,77 @@
+nav ul a {
+	color: brown;
+	font-family: 'Fira Sans Extra Condensed', sans-serif;
+	font-size: 18pt
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+	color:brown;
+	font-size: 14pt;
+}
+
+#navbar {
+	background-color: #FFF;
+	height: 75px;
+}
+
+ #title{
+  font-size: 72pt;
+  font-family: 'Bangers', cursive;
+
+ }
+
+ h1 {
+  color:red;
+  font-family: 'Bangers', cursive;
+ }
+
+	 h2 {
+  font-family: 'Bangers', cursive;
+ }
+
+  h4 {
+  color:brown;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+ }
+
+ h5 {
+  color:white;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+
+ }
+
+
+
+
+
+.displayLogin{
+	color:black;
+	position: absolute;
+	right:25%;
+	border: solid black 2px;
+	background-color: white;
+	top:7%;
+	left:25%;
+	box-shadow: 10px 10px 5px #888888;
+	border-radius: 10px;
+}
+.loginScreen{
+	padding-left: 15px;
+}
+#loginPrompt{
+	font-size: 30px;
+}
+#createUserPrompt{
+	font-size: 30px;
+}
+#closeWindow{
+	cursor: pointer;
+	width:15px;
+	margin-left: 45.5%;
+}
+
+#middlePic {
+ background-color: #38557C;
+
+}
+
