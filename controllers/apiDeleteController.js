@@ -12,6 +12,9 @@ exports.delteUser = function (req, res){
 			where: {
 				id: id
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	};
 
@@ -24,6 +27,9 @@ exports.delteTimePunch = function (req, res){
 			where: {
 				id: id
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	};
 
@@ -35,6 +41,9 @@ exports.delteTask = function (req, res){
 			where: {
 				id: id
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	};
 
@@ -46,5 +55,8 @@ exports.delteJob = function (req, res){
 			where: {
 				job: job
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	};

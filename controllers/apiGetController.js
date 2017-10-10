@@ -20,6 +20,9 @@ const db = require('../models');
 				 $gte: start,
 				 $lte: end
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	};
 
@@ -43,6 +46,9 @@ const db = require('../models');
 				 $gte: start,
 				 $lte: end
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	};
 
@@ -64,6 +70,9 @@ const db = require('../models');
 				 $gte: start,
 				 $lte: end
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	};
 
@@ -89,6 +98,9 @@ const db = require('../models');
 				 $lte: end
 			}
 		})
+		.then(function(result) {
+			res.json(result);
+		});
 	};
 
 	//team
@@ -108,6 +120,9 @@ const db = require('../models');
 				 $gte: start,
 				 $lte: end
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	};
 
@@ -129,6 +144,9 @@ const db = require('../models');
 				 $lte: end
 			}
 		})
+		.then(function(result) {
+			res.json(result);
+		});
 	};
 
 
@@ -144,6 +162,9 @@ const db = require('../models');
 			where: {
 				 company: company,
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	};
 
@@ -157,4 +178,7 @@ const db = require('../models');
 				 company: company,
 			}
 		})
+		.then(function(result) {
+			res.json(result);
+		});
 	};

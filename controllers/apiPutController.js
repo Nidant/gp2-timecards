@@ -25,6 +25,9 @@ exports.updateUser = function (req, res){
 			where: {
 				id: id
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	};
 
@@ -45,6 +48,9 @@ exports.updateTimePunch = function (req, res){
 			where: {
 				id: id
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	}
 
@@ -62,6 +68,9 @@ exports.updateCompanyName = function (req, res){
 			where: {
 				company: company
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	}
 
@@ -80,6 +89,9 @@ exports.updateJobTask = function (req, res){
 			where: {
 				id: id
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	}
 
@@ -97,5 +109,8 @@ exports.updateJobName = function (req, res){
 			where: {
 				job: job
 			}
+		})
+		.then(function(result) {
+			res.json(result);
 		});
 	}
