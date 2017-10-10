@@ -10,7 +10,8 @@ const db = require('../models');
 		    email = res.body.email;
 
 		db.Punchs.findAll({
-			attributes: ['task', 'job','start', 'stop', 'note'],
+			group['startDate'],
+			attributes: ['startDate','startTime', 'stopDate', 'stopTime'],
 			include: [{
 				model: Users,
 				required: true
@@ -19,6 +20,22 @@ const db = require('../models');
 				 email: email,
 				 $gte: start,
 				 $lte: end
+			}
+		})
+		.then(function(result) {
+			res.json(result);
+		});
+	};
+
+	//Users
+	exports.usersInfo = function (req, res){
+
+		var email = res.body.email;
+
+		db.Punchs.findAll({
+			attributes: ['fName', 'company'],,
+			where: {
+				 email: email,
 			}
 		})
 		.then(function(result) {
