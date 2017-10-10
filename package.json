@@ -1,0 +1,32 @@
+{
+  "name": "gp2-timecards",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "install": "^0.10.1",
+    "jquery": "^3.2.1",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.4.2",
+    "path": "^0.12.7",
+    "sequelize": "^4.13.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nidant/gp2-timecards.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nidant/gp2-timecards/issues"
+  },
+  "homepage": "https://github.com/Nidant/gp2-timecards#readme"
+}
