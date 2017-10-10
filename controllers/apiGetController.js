@@ -216,3 +216,23 @@ const db = require('../models');
 			res.json(result);
 		});
 	};
+
+exports.login = function (req, res){
+
+  let email = res.body.email,
+       password = res.body.password;
+
+  db.Users.count({
+        where: {
+            email: email,
+            password: password,
+        }
+    })
+    .then(function(count) {
+        if (count != 0 ){
+            res.redirect(path.join(__dirname, "../public/Public/HTML/companyHome.html"));
+       }else{
+               res.json("err": "Incorrect username or password");
+       }
+    });
+};
