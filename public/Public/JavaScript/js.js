@@ -1,3 +1,4 @@
+
 function login(){
 	closeWindow();
 	$('#loginPopup').attr('class', 'displayLogin center');
