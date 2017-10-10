@@ -26,13 +26,17 @@ exports.newUser = function (req, res){
 // -- time punch(type, name, startDate, endDate) type = Company, User, Team
 exports.newTimePunch = function (req, res){
 
-	let start = req.body.start,
-		stop = req.body.stop,
+	let startDate = req.body.start,
+		startTime = req.body.startTime,
+		stopDate = req.body.stop,
+		stopTime = req.body.stopTime,
 		note = req.body.note;
 
 	db.Punchs.create({
-		start: start,
+		startDate: start,
+		startTime: startTime,
 		stop: stop,
+		stopTime: stopTime,
 		note: note
 	})
 	.then(function(result) {
