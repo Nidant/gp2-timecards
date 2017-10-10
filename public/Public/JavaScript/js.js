@@ -40,6 +40,7 @@ function postNewUser(){
 //      	.then(getUsers);
      console.log(userData);
   	}
+  	//verify user information is entered correectly
   	if($('#newPassword').val() != $('#newPassword2').val()){
   		alert('Passwords do not match, please re-enter your password and try again');
   	}else if($('#newfname').val() == "" || $('#newlname').val() == "" || $('#newEmail').val() == "" || $('#newPassword').val() == "" || $('#newCompany').val() == ""){
@@ -47,6 +48,7 @@ function postNewUser(){
   	}else{
 
 		postUser({
+			action: newUser,
 			fname: $('#newfname').val(),
 			lname: $('#newlname').val(),
 			email: $('#newEmail').val(),
