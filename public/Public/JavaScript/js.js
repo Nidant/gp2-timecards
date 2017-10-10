@@ -58,6 +58,7 @@ function postNewUser(){
 	}
 }
 
+//What occurs when the user clicks on the clock in button
 function timePunch(){
 	var test = $('.timePunch').text();
 	console.log(test);
@@ -67,6 +68,9 @@ function timePunch(){
 		$('.timePunch').text("CLOCK IN");
 	}
 }
+
+
+
 // function getUsers() {
 // 	$.get("/api/", function(data) {
 // 	  var rowsToAdd = [];
