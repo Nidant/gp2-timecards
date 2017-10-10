@@ -52,7 +52,7 @@ const db = require('../models');
 
 		db.Punchs.findAll({
 			group: ['email'],
-			attributes: ['start', 'stop', 'note'],
+			attributes: ['startDate','startTime', 'stopDate', 'stopTime'],
 			include: [{
 				model: Users,
 				required: true,
@@ -77,7 +77,7 @@ const db = require('../models');
 		    company = res.body.company;
 
 		db.Punchs.findAll({
-			attributes: ['start', 'stop', 'note'],
+			attributes: ['startDate','startTime', 'stopDate', 'stopTime'],
 			include: [{
 				model: Users,
 				required: true
@@ -97,74 +97,74 @@ const db = require('../models');
 // C
 // -- Total hours (type, name, startDate, endDate) type = Company, Users, Team => total Hours (OverTime, Normal, Holiday, Sick)
 
-	//Users
-	exports.UsersTotalTime = function (req, res){
+	// //Users
+	// exports.UsersTotalTime = function (req, res){
 
-		let start = res.body.start,
-		    end = res.body.end,
-		    email = res.body.email;
+	// 	let start = res.body.start,
+	// 	    end = res.body.end,
+	// 	    email = res.body.email;
 
-		db.Punchs.findAll({
-			include: [{
-				model: Users,
-				required: true
-			}],
-			where: {
-				 email: email,
-				 $gte: start,
-				 $lte: end
-			}
-		})
-		.then(function(result) {
-			res.json(result);
-		});
-	};
+	// 	db.Punchs.findAll({
+	// 		include: [{
+	// 			model: Users,
+	// 			required: true
+	// 		}],
+	// 		where: {
+	// 			 email: email,
+	// 			 $gte: start,
+	// 			 $lte: end
+	// 		}
+	// 	})
+	// 	.then(function(result) {
+	// 		res.json(result);
+	// 	});
+	// };
 
-	//team
-	exports.teamTotalTime = function (req, res){
+	// //team
+	// exports.teamTotalTime = function (req, res){
 
-		let start = res.body.start,
-		    end = res.body.end,
-		    company = res.body.team;
+	// 	let start = res.body.start,
+	// 	    end = res.body.end,
+	// 	    company = res.body.team;
 
-		db.Punchs.findAll({
-			include: [{
-				model: Users,
-				required: true
-			}],
-			where: {
-				 team: team,
-				 $gte: start,
-				 $lte: end
-			}
-		})
-		.then(function(result) {
-			res.json(result);
-		});
-	};
+	// 	db.Punchs.findAll({
+	// 		include: [{
+	// 			model: Users,
+	// 			required: true
+	// 		}],
+	// 		where: {
+	// 			 team: team,
+	// 			 $gte: start,
+	// 			 $lte: end
+	// 		}
+	// 	})
+	// 	.then(function(result) {
+	// 		res.json(result);
+	// 	});
+	// };
 
-	//company
-	exports.companyTotalTime = function (req, res){
+	// //company
+	// exports.companyTotalTime = function (req, res){
 
-		let start = res.body.start,
-		    end = res.body.end,
-		    company = res.body.company;
+	// 	let start = res.body.start,
+	// 	    end = res.body.end,
+	// 	    company = res.body.company;
 
-		db.Punchs.findAll({
-			include: [{
-				model: Users,
-				required: true
-			}],
-			where: {
-				 company: team,
-				 $gte: start,
-				 $lte: end
-			}
-		})
-		.then(function(result) {
-			res.json(result);
-		});
-	};
+	// 	db.Punchs.findAll({
+	// 		include: [{
+	// 			model: Users,
+	// 			required: true
+	// 		}],
+	// 		where: {
+	// 			 company: team,
+	// 			 $gte: start,
+	// 			 $lte: end
+	// 		}
+	// 	})
+	// 	.then(function(result) {
+	// 		res.json(result);
+	// 	});
+	// };
 
 
 // D
