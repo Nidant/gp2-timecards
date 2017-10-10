@@ -21,7 +21,7 @@ module.exports = function(app) {
 
 		let action = req.body.action;
 
-		apiGetController[action](req).then(function(results){
+		apiGetController[action](req, res).then(function(results){
         	res.json(results);
       	});
 
@@ -31,7 +31,7 @@ module.exports = function(app) {
 
 		let action = req.body.action;
 
-		apiPostController[action](req).then(function(results){
+		apiPostController[action](req, res).then(function(results){
        		res.json(results);
       	});
 
@@ -41,7 +41,7 @@ module.exports = function(app) {
 
 		let action = req.body.action;
 
-		apiPutController[action](req).then(function(results){
+		apiPutController[action](req, res).then(function(results){
         	res.json(results);
       	});
 
@@ -51,7 +51,7 @@ module.exports = function(app) {
 
 		let action = req.body.action;
 
-		apiDeleteController[action](req).then(function(results){
+		apiDeleteController[action](req, res).then(function(results){
         	res.json(results);
       	});
 
