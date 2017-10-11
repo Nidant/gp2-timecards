@@ -2,7 +2,7 @@ const db = require('../models');
 
 // -- new user (fname, lname, username, company, password)
 exports.newUser = function (req, res){
-	console.log(req.body)
+	console.log(req.body);
 	let fName = req.body.fName,
 		lName = req.body.lName,
 		email = req.body.email,
@@ -25,18 +25,21 @@ exports.newUser = function (req, res){
 
 // -- time punch(type, name, startDate, endDate) type = Company, User, Team
 exports.newTimePunch = function (req, res){
-
+	console.log("-----------------------------------------");
+	console.log(req.body);
 	let startDate = req.body.start,
 		startTime = req.body.startTime,
 		stopDate = req.body.stop,
 		stopTime = req.body.stopTime,
+		UserId = req.body.UserId
 		note = req.body.note;
 
 	db.Punchs.create({
-		startDate: start,
+		startDate: startDate,
 		startTime: startTime,
-		stop: stop,
+		stop: stopDate,
 		stopTime: stopTime,
+		UserId: UserId,
 		note: note
 	})
 	.then(function(result) {

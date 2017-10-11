@@ -6,6 +6,7 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var path = require("path");
 
 // Sets up the Express App
 // =============================================================
@@ -22,7 +23,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 // =============================================================
@@ -30,11 +31,11 @@ app.use(express.static("public"));
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
-//import controllers
-const apiGetController = require('./controllers/apiGetController'),
-	  apiPostController = require('./controllers/apiPostController'),
-	  apiPutController = require('./controllers/apiPutController'),
-	  apiDeleteController = require('./controllers/apiDeleteController');
+// //import controllers
+// const apiGetController = require('./controllers/apiGetController'),
+//       apiPostController = require('./controllers/apiPostController'),
+//       apiPutController = require('./controllers/apiPutController'),
+//       apiDeleteController = require('./controllers/apiDeleteController');
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

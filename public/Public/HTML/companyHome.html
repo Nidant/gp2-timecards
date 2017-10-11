@@ -20,7 +20,7 @@
     <ul class="right hide-on-med-and-down">
      
       <li><a href="index.html">Contact Us</a></li>
-      <li><a href="http://google.com">Home</a></li>
+      <li><a href="/">Home</a></li>
       <!-- Dropdown Trigger -->
      <!--  <li><a class="btn-large waves-effect waves-light white lighten-1 brown-text" href="#!" data-activates="dropdown1">User<i class="material-icons right">arrow_drop_down</i></a></li> -->
        
@@ -34,7 +34,9 @@
         <br><br>
         <div id="title" class="header center white-text text-lighten-2">COMPANY NAME HERE </div>
         <div class="row center">
-          <h5 id="welcome">Welcome </h5>
+
+          <h5 id="welcome">Welcome <span id='userName'></span></h5>
+
         </div>
         <div class="row center" id="timePunchHolder">
           <a id="download-button" class="btn-large waves-effect waves-light white lighten-1 black-text timePunch" onclick="timePunch()">CLOCK IN</a>
@@ -57,44 +59,56 @@
         <div class="col s12 m3">
           <div class="icon-block">
             <!-- <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2> -->
-            <h5 id="clock" class="center">Date:</h5>
 
-            <p class="light center">12/12/2017</p>
-            <p class="light center">12/13/2017</p>
-              <p class="light center"></p>
+            <h5 id="clock" class="center">Date:</h5>
+            <div class="center" id="clockInDate">
+              <p class="light center">12/12/2017</p>
+              <p class="light center">12/13/2017</p>
+                <p class="light center"></p>
+            </div>
+
           </div>
         </div>
            <div class="col s12 m3">
           <div class="icon-block">
            <!--  <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2> -->
-            <h5 id="clock" class="center">Clock In:</h5>
 
-            <p class="light center">8:00 am</p>
-            <p class="light center"> 8:00 am</p>
-            <p class="light center"> 1:00 pm</p>
+            <h5 id="clock" class="center">Clock In:</h5>
+            <div class="center" id='clockInTime'>
+              <p class="light center">8:00 am</p>
+              <p class="light center"> 8:00 am</p>
+              <p class="light center"> 1:00 pm</p>
+            </div>
+
           </div>
         </div>
 
         <div class="col s12 m3">
           <div class="icon-block">
           <!--   <h2 class="center brown-text"><i class="material-icons">group</i></h2> -->
-            <h5 id="clock" class="center">Clock Out:</h5>
 
-            <p class="light center">5:00 pm</p>
-            <p class="light center"> 12:00 pm</p>
-            <p class="light center"> 5:00 pm</p>
+            <h5 id="clock" class="center">Clock Out:</h5>
+            <div class="center" id="clockOutTime">
+              <p class="light center">5:00 pm</p>
+              <p class="light center"> 12:00 pm</p>
+              <p class="light center"> 5:00 pm</p>
+            </div>
+
           </div>
         </div>
 
         <div class="col s12 m3">
           <div class="icon-block">
           <!--   <h2 class="center brown-text"><i class="material-icons">settings</i></h2> -->
-            <h5 id="clock" class="center">Total:</h5>
 
-            <p class="light center "> 9:00</p>
-            <p class="light center"> </p>
-            <br>
-           <p class="light center"> 8:00</p>
+            <h5 id="clock" class="center">Total:</h5>
+            <div class="center" id="totalTime">
+              <p class="light center "> 9:00</p>
+              <p class="light center"> </p>
+              <br>
+             <p class="light center"> 8:00</p>
+           </div>
+
           </div>
         </div>
       </div>
@@ -125,6 +139,23 @@
   <script src="./Public/JavaScript/materialize.js"></script>
   <script src="./Public/JavaScript/init.js"></script>
   <script src="./Public/JavaScript/js.js"></script>
+
+  <!-- If the session storage looking for the user name and company is blank then redirect the user to the home page to sign in. -->
+  <script type="text/javascript">
+    //if the user company is null direct the user to the home page.
+    window.onload = function(){
+      
+      if(sessionStorage.getItem('userCompany') != null){
+        $("#title").text(sessionStorage.getItem('userCompany'));
+        $("#userName").text(sessionStorage.getItem('userfName'));
+        updatePageHtml();
+      }else{
+        var currentURL = window.location.origin;
+        document.location.href = currentURL + "/";
+      }
+    }
+
+  </script>
 
   </body>
 </html>
