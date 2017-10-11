@@ -10,7 +10,7 @@ const db = require('../models');
 		    email = res.body.email;
 
 		db.Punchs.findAll({
-			group['startDate'],
+			group: ['startDate'],
 			attributes: ['startDate','startTime', 'stopDate', 'stopTime'],
 			include: [{
 				model: Users,
@@ -33,7 +33,7 @@ const db = require('../models');
 		var email = res.body.email;
 
 		db.Punchs.findAll({
-			attributes: ['fName', 'company'],,
+			attributes: ['fName', 'company'],
 			where: {
 				 email: email,
 			}
@@ -203,8 +203,8 @@ const db = require('../models');
 		//company short
 	exports.login = function (req, res){
 
-		let company = res.body.email,
-			pwd = res.body.password;
+		let email = req.query.email,
+			pwd = req.query.password;
 
 		db.Users.findAll({
 			where: {
@@ -217,22 +217,37 @@ const db = require('../models');
 		});
 	};
 
-exports.login = function (req, res){
+	exports.timePunchInfo = function (req, res){
+		console.log(req.query);
+		console.log("================================");
+		let UserId = req.query.UserId;
 
-  let email = res.body.email,
-       password = res.body.password;
+		db.Punchs.findAll({
+			where: {
+				 UserId: UserId
+			}
+		})
+		.then(function(result) {
+			res.json(result);
+		});
+	};
 
-  db.Users.count({
-        where: {
-            email: email,
-            password: password,
-        }
-    })
-    .then(function(count) {
-        if (count != 0 ){
-            res.redirect(path.join(__dirname, "../public/Public/HTML/companyHome.html"));
-       }else{
-               res.json("err": "Incorrect username or password");
-       }
-    });
-};
+// exports.login = function (req, res){
+
+//   let email = res.body.email,
+//        password = res.body.password;
+// console.log(res);
+//   db.Users.count({
+//         where: {
+//             email: email,
+//             password: password,
+//         }
+//     })
+//     .then(function(count) {
+//         if (count != 0 ){
+//             res.redirect(path.join(__dirname, "../public/Public/HTML/companyHome.html"));
+//        }else{
+//                res.json("err: Incorrect username or password");
+//        }
+//     });
+// };

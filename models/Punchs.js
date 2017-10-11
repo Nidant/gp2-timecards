@@ -10,9 +10,6 @@ module.exports = function(sequelize, DataTypes) {
     startTime: {
       type: DataTypes.TIME,
       allowNull: false,
-      validate: {
-        isDate: true
-      }
     },
     stopDate: {
       type: DataTypes.DATEONLY,
