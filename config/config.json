@@ -1,24 +1,20 @@
 {
   "development": {
-    "username": "root",
-    "password": "Poker003!",
-
-    "database": "timecards",
-    "host": "127.0.0.1",
+    "username": "yawyjfzygahtleaa",
+    "password": "pis1ly2o790h09su",
+    "host": "gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "yawyjfzygahtleaa",
+    "password": "pis1ly2o790h09su",
+    "host": "gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "yawyjfzygahtleaa",
+    "password": "pis1ly2o790h09su",
+    "host": "gk90usy5ik2otcvi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
