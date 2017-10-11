@@ -5,13 +5,13 @@ const db = require('../models');
 	//Users
 	exports.usersTimePunch = function (req, res){
 
-		var start = res.body.start,
-		    end = res.body.end,
-		    email = res.body.email;
+		var start = res.query.start,
+		    end = res.query.end,
+		    email = res.query.email;
 
 		db.Punchs.findAll({
 			group: ['startDate'],
-			attributes: ['startDate','startTime', 'stopDate', 'stopTime'],
+			attributes: ['id', 'startDate','startTime', 'stopDate', 'stopTime'],
 			include: [{
 				model: Users,
 				required: true
@@ -23,14 +23,16 @@ const db = require('../models');
 			}
 		})
 		.then(function(result) {
+			console.log(result);
 			res.json(result);
 		});
+
 	};
 
 	//Users
 	exports.usersInfo = function (req, res){
 
-		var email = res.body.email;
+		var email = res.query.email;
 
 		db.Punchs.findAll({
 			attributes: ['fName', 'company'],
@@ -46,13 +48,13 @@ const db = require('../models');
 	//team
 	exports.teamTimePunch = function (req, res){
 
-		let start = res.body.start,
-		    end = res.body.end,
-		    team = res.body.team;
+		let start = res.query.start,
+		    end = res.query.end,
+		    team = res.query.team;
 
 		db.Punchs.findAll({
 			group: ['email'],
-			attributes: ['startDate','startTime', 'stopDate', 'stopTime'],
+			attributes: ['id', 'startDate','startTime', 'stopDate', 'stopTime'],
 			include: [{
 				model: Users,
 				required: true,
@@ -72,12 +74,12 @@ const db = require('../models');
 	//company
 	exports.companyTimePunch = function (req, res){
 
-		let start = res.body.start,
-		    end = res.body.end,
-		    company = res.body.company;
+		let start = res.query.start,
+		    end = res.query.end,
+		    company = res.query.company;
 
 		db.Punchs.findAll({
-			attributes: ['startDate','startTime', 'stopDate', 'stopTime'],
+			attributes: ['id', 'startDate','startTime', 'stopDate', 'stopTime'],
 			include: [{
 				model: Users,
 				required: true
@@ -100,9 +102,9 @@ const db = require('../models');
 	// //Users
 	// exports.UsersTotalTime = function (req, res){
 
-	// 	let start = res.body.start,
-	// 	    end = res.body.end,
-	// 	    email = res.body.email;
+	// 	let start = res.query.start,
+	// 	    end = res.query.end,
+	// 	    email = res.query.email;
 
 	// 	db.Punchs.findAll({
 	// 		include: [{
@@ -123,9 +125,9 @@ const db = require('../models');
 	// //team
 	// exports.teamTotalTime = function (req, res){
 
-	// 	let start = res.body.start,
-	// 	    end = res.body.end,
-	// 	    company = res.body.team;
+	// 	let start = res.query.start,
+	// 	    end = res.query.end,
+	// 	    company = res.query.team;
 
 	// 	db.Punchs.findAll({
 	// 		include: [{
@@ -146,9 +148,9 @@ const db = require('../models');
 	// //company
 	// exports.companyTotalTime = function (req, res){
 
-	// 	let start = res.body.start,
-	// 	    end = res.body.end,
-	// 	    company = res.body.company;
+	// 	let start = res.query.start,
+	// 	    end = res.query.end,
+	// 	    company = res.query.company;
 
 	// 	db.Punchs.findAll({
 	// 		include: [{
@@ -173,7 +175,7 @@ const db = require('../models');
 	//company long
 	exports.companyDetailsFull = function (req, res){
 
-		let company = res.body.company;
+		let company = res.query.company;
 
 		db.Users.findAll({
 			where: {
@@ -188,7 +190,7 @@ const db = require('../models');
 	//company short
 	exports.companyDetails = function (req, res){
 
-		let company = res.body.company;
+		let company = res.query.company;
 
 		db.Users.findAll({
 			where: {
@@ -228,14 +230,15 @@ const db = require('../models');
 			}
 		})
 		.then(function(result) {
+			console.log(result);
 			res.json(result);
 		});
 	};
 
 // exports.login = function (req, res){
 
-//   let email = res.body.email,
-//        password = res.body.password;
+//   let email = res.query.email,
+//        password = res.query.password;
 // console.log(res);
 //   db.Users.count({
 //         where: {
