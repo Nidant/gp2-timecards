@@ -4,14 +4,27 @@ nav ul a {
 	font-size: 18pt
 }
 
+body {
+	background-color: #455063;
+}
+
+
+
+#index-banner {
+	border-bottom:15px solid white;
+	border-top: 15px solid white;
+}
+
 .dropdown-content li > a, .dropdown-content li > span {
 	color:brown;
 	font-size: 14pt;
 }
 
+
 #navbar {
-	background-color: #FFF;
-	height: 75px;
+	background-color: #455063;
+	height: 105px;
+	border-bottom: 15px solid white;
 }
 
  #title{
@@ -32,12 +45,18 @@ nav ul a {
   h4 {
   color:brown;
   font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 36pt;
+ }
+ p{
+ 	font-size: 14pt;
  }
 
- h5 {
+ .time {
   color:white;
   font-family: 'Fira Sans Extra Condensed', sans-serif;
  }
+
+
 
 .displayLogin{
 	color:black;
@@ -69,4 +88,8 @@ nav ul a {
  background-color: #38557C;
 
 }
-
+ footer {
+ 	background-color: #455063;
+ 	height: 105px;
+	border-top: 15px solid white;
+ }

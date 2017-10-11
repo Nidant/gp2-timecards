@@ -9,9 +9,10 @@ nav ul a {
 	font-size: 14pt;
 }
 
-#navbar {
-	background-color: #4A6E9A;
+#navbar2 {
+	background-color: #455063;
 	height: 75px;
+	border-bottom: 5px solid white;
 }
 
 h1 {
@@ -22,3 +23,12 @@ h5 {
 	color: #38557C;
 	font-size: 24pt;
 }
+
+#welcome{
+	color: white;
+	font-size: 24pt;
+}
+
+ #clock {
+ 	color: white;
+ }

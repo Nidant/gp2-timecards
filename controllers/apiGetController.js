@@ -10,7 +10,7 @@ const db = require('../models');
 		    email = res.body.email;
 
 		db.Punchs.findAll({
-			group['startDate'],
+			group: ['startDate'],
 			attributes: ['startDate','startTime', 'stopDate', 'stopTime'],
 			include: [{
 				model: Users,
@@ -33,7 +33,7 @@ const db = require('../models');
 		var email = res.body.email;
 
 		db.Punchs.findAll({
-			attributes: ['fName', 'company'],,
+			attributes: ['fName', 'company'],
 			where: {
 				 email: email,
 			}
