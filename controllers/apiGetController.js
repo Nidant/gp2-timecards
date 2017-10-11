@@ -11,7 +11,9 @@ const db = require('../models');
 
 		db.Punchs.findAll({
 			group: ['startDate'],
+
 			attributes: ['id', 'startDate','startTime', 'stopDate', 'stopTime'],
+
 			include: [{
 				model: Users,
 				required: true
