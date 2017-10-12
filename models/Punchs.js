@@ -19,9 +19,6 @@ module.exports = function(sequelize, DataTypes) {
     },
     stopTime: {
       type: DataTypes.TIME,
-      validate: {
-        isDate: true
-      },
     note: {
       type: DataTypes.TEXT,
     }

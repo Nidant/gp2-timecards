@@ -34,10 +34,10 @@ exports.updateUser = function (req, res){
 // -- Time(id, start, end)
 exports.updateTimePunch = function (req, res){
 
-		let id = res.body.id,
-		    stopTime = res.body.stopTime,
-		    stopDate = res.body.stopDate,
-		    note = res.body.note;
+		let id = req.body.id,
+		    stopTime = req.body.stopTime,
+		    stopDate = req.body.stopDate,
+		    note = req.body.note;
 
 		db.Punchs.update({
 			stopDate: stopDate,
