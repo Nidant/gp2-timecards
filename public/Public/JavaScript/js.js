@@ -127,6 +127,8 @@ function timePunch(){
 		function postClockIn(clockInData) {
 	    	$.post("/api/", clockInData, function(data){
 	    		console.log(data);
+	    		console.log("++++++++++++++++++++++++++++++++++++++++");
+	    		sessionStorage.setItem('timeId', data.id);
 	    	})
 	    	//after the database is queried, update the page with the correct information
 	      	.then(updatePageHtml);
@@ -162,7 +164,7 @@ function timePunch(){
 		function updateClockOut(clockOutData) {
 	    	$.put("/api/", clockOutData, function(data){
 	    		console.log(data);
-	    		sessionStorage.setItem('timeId', data[0].id);
+	    		// sessionStorage.setItem('timeId', data[0].id);
 	    	})
 	    	//run the update page function to update the visual times to the user
 	      	.then(updatePageHtml);
@@ -230,7 +232,8 @@ function updatePageHtml(){
     			if(data[i].startTime == null || data[i].stopTime == null){
     				$('#totalTime').append('<p class="light center">' + "Error" + '</p>');
     			}else{
-    				$('#totalTime').append('<p class="light center">' + "Total Here" + '</p>');
+    				
+    				$('#totalTime').append('<p class="light center">' + Math.abs(data[i].stopTime - data[i].startTime) + '</p>');
     			}
 
     		}
